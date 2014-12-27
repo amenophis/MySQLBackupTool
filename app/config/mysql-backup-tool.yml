@@ -1,0 +1,17 @@
+app:
+    servers:
+        local:
+            hostname: localhost
+            username: root
+            password: root
+    users:
+        admin:
+            password: toto
+            roles: [ROLE_USER]
+    backups:
+        all:
+            server: local
+            options: --all-databases
+        all2:
+            server: local
+            options: --all-databases

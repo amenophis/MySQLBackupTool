@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ backup.name }}
+    {{ backup.server.password|password }}
+{% endblock %}

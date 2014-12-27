@@ -1,0 +1,22 @@
+services:
+    app.manager.server:
+        class: AppBundle\Manager\ServerManager
+        arguments: [%app.config.servers%]
+
+    app.manager.user:
+        class: AppBundle\Manager\UserManager
+        arguments: [%app.config.users%]
+
+    app.manager.backup:
+        class: AppBundle\Manager\BackupManager
+        arguments: [%app.config.backups%, @app.manager.server]
+
+    app.user_provider:
+        class: AppBundle\Security\User\UserProvider
+        arguments: [@app.manager.user]
+
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        arguments: [@app.manager.server, @app.manager.backup]
+        tags:
+            - { name: twig.extension }

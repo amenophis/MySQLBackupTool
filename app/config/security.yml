@@ -1,0 +1,21 @@
+security:
+    encoders:
+        AppBundle\Configuration\User: plaintext
+
+    providers:
+        users:
+            id: app.user_provider
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        default:
+            pattern:    ^/
+            provider: users
+            logout: ~
+            http_basic: ~
+            stateless:  true
+
+    access_control:
+        - { path: ^/, roles: ROLE_USER }
