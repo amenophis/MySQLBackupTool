@@ -16,12 +16,16 @@ class Backup
     /** @var string */
     protected $options;
 
-    public function __construct($name, Server $server, $storagePath, $options)
+    /** @var int */
+    protected $retentionDays;
+
+    public function __construct($name, Server $server, $storagePath, $options, $retentionDays)
     {
         $this->name = $name;
         $this->server = $server;
         $this->storagePath = rtrim($storagePath, '\\/');
         $this->options = $options;
+        $this->retentionDays = $retentionDays;
     }
 
     /**
@@ -86,5 +90,21 @@ class Backup
     public function setOptions($options)
     {
         $this->options = $options;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRetentionDays()
+    {
+        return $this->retentionDays;
+    }
+
+    /**
+     * @param int $retentionDays
+     */
+    public function setRetentionDays($retentionDays)
+    {
+        $this->retentionDays = $retentionDays;
     }
 }

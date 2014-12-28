@@ -27,7 +27,7 @@ class BackupManager
         $this->serverManager = $serverManager;
 
         foreach ($backups as $backupName => $backup) {
-            $this->backups[$backupName] = new Backup($backupName, $serverManager->getServer($backup['server']), $backup['storage_path'], $backup['options']);
+            $this->backups[$backupName] = new Backup($backupName, $serverManager->getServer($backup['server']), $backup['storage_path'], $backup['options'], $backup['retention_days']);
         }
     }
 
