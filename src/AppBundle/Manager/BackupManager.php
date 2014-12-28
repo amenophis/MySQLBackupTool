@@ -51,7 +51,7 @@ class BackupManager
             return $this->backups[$backupName];
         }
 
-        throw new BackupNotFoundException();
+        throw new BackupNotFoundException($backupName);
     }
 
     /**

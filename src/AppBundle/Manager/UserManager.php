@@ -39,6 +39,6 @@ class UserManager
             return $this->users[$username];
         }
 
-        throw new UserNotFoundException();
+        throw new UserNotFoundException($username);
     }
 }

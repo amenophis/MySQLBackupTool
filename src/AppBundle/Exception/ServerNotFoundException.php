@@ -4,8 +4,8 @@ namespace AppBundle\Exception;
 
 class ServerNotFoundException extends \Exception
 {
-    public function __construct()
+    public function __construct($name)
     {
-        parent::__construct("Server not found");
+        parent::__construct(sprintf("Server '%s' not found", $name));
     }
 }

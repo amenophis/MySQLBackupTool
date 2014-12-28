@@ -33,6 +33,6 @@ class ServerManager
             return $this->servers[$name];
         }
 
-        throw new ServerNotFoundException();
+        throw new ServerNotFoundException($name);
     }
 }
