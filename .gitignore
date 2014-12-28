@@ -13,3 +13,4 @@
 /app/vendor
 /storage/*
 !storage/.gitkeep
+/app/config/mysql-backup-tool.yml
