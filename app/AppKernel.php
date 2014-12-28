@@ -30,6 +30,10 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
+        if (!file_exists(__DIR__.'/config/mysql-backup-tool.yml')) {
+            throw new \Exception('Configuration file not found ! Please create mysql-backup-tool.yml in app/config folder !');
+        }
+
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
 }
